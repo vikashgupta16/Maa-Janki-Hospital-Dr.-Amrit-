@@ -1,0 +1,19 @@
+{
+  "name": "माँ जानकी हॉस्पिटल एंड चाइल्ड केयर - Maa Janki Hospital & Child Care",
+  "short_name": "Maa Janki Hospital",
+  "description": "Expert pediatric care in Mairwa, Bihar. 24x7 emergency services, NICU, and specialized child healthcare.",
+  "theme_color": "#ff5722",
+  "background_color": "#fef7ed",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["health", "medical", "healthcare"],
+  "lang": "hi"
+}
