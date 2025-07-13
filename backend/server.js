@@ -43,9 +43,10 @@ app.use(cors({
     'http://localhost:3000', // React dev server
     'http://127.0.0.1:5173',
     'http://127.0.0.1:3000',
-    // Add your production domains here
-    'https://your-domain.com',
-    'https://www.your-domain.com'
+    // Production domains
+    'https://maa-janki-hospital-dr-amrit.vercel.app',
+    'https://maa-janki-hospital-dr-amrit-*.vercel.app',
+    'https://*.vercel.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
