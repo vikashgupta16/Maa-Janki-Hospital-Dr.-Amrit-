@@ -1,5 +1,4 @@
 {
-  "name": "maa-janki-hospital",
   "version": 2,
   "builds": [
     {
@@ -11,6 +10,18 @@
     }
   ],
   "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "/vite.svg",
+      "dest": "/vite.svg"
+    },
     {
       "src": "/(.*)",
       "dest": "/index.html"
