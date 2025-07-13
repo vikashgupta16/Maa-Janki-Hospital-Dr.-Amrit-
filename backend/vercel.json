@@ -1,5 +1,4 @@
 {
-  "name": "maa-janki-hospital-backend",
   "version": 2,
   "builds": [
     {
@@ -13,10 +12,9 @@
       "dest": "/server.js"
     }
   ],
-  "env": {
-    "NODE_ENV": "production",
-    "MONGODB_URI": "@mongodb_uri",
-    "EMAIL_USER": "@email_user",
-    "EMAIL_PASS": "@email_pass"
+  "functions": {
+    "server.js": {
+      "maxDuration": 30
+    }
   }
 }
