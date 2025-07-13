@@ -14,6 +14,7 @@ import Doctor from './pages/Doctor';
 import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import ProtectedAdmin from './pages/ProtectedAdmin';
 
 // Import i18n configuration
 import './i18n';
@@ -63,6 +64,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<ProtectedAdmin />} />
         </Routes>
         <Footer />
       </div>

@@ -15,6 +15,7 @@ import {
   FaCheckCircle,
   FaExclamationTriangle
 } from 'react-icons/fa';
+import { apiConfig, apiRequest } from '../config/api';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -40,23 +41,43 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitStatus('success');
-      setIsSubmitting(false);
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        childAge: '',
-        message: '',
-        urgency: 'normal'
+    try {
+      const result = await apiRequest(apiConfig.endpoints.contact, {
+        method: 'POST',
+        body: JSON.stringify(formData),
       });
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          childAge: '',
+          message: '',
+          urgency: 'normal'
+        });
+        
+        // Reset success message after 8 seconds
+        setTimeout(() => setSubmitStatus(null), 8000);
+      } else {
+        setSubmitStatus('error');
+        console.error('Form submission failed:', result);
+        
+        // Reset error message after 5 seconds
+        setTimeout(() => setSubmitStatus(null), 5000);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      setSubmitStatus('error');
       
-      // Reset success message after 5 seconds
+      // Reset error message after 5 seconds
       setTimeout(() => setSubmitStatus(null), 5000);
-    }, 2000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -254,6 +275,23 @@ const Contact = () => {
                       <span className="text-green-800 font-semibold">Message sent successfully!</span>
                     </div>
                     <p className="text-green-700 text-sm mt-1">We'll get back to you within 2 hours.</p>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <FaExclamationTriangle className="w-5 h-5 text-red-600" />
+                      <span className="text-red-800 font-semibold">Failed to send message</span>
+                    </div>
+                    <p className="text-red-700 text-sm mt-1">
+                      Please try again or call us directly at{' '}
+                      <a href="tel:9128231000" className="font-semibold underline">9128231000</a>
+                    </p>
                   </motion.div>
                 )}
 
