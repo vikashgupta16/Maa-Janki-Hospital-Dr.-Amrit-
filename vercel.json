@@ -15,15 +15,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "env": {
-    "VITE_API_URL": "https://maa-janki-hospital-api.vercel.app",
-    "VITE_ENVIRONMENT": "production",
-    "VITE_ADMIN_DRAMRIT_USERNAME": "@admin_dramrit_username",
-    "VITE_ADMIN_DRAMRIT_PASSWORD": "@admin_dramrit_password",
-    "VITE_ADMIN_ANMOL_USERNAME": "@admin_anmol_username",
-    "VITE_ADMIN_ANMOL_PASSWORD": "@admin_anmol_password",
-    "VITE_ADMIN_DEVELOPER_USERNAME": "@admin_developer_username",
-    "VITE_ADMIN_DEVELOPER_PASSWORD": "@admin_developer_password"
-  }
+  ]
 }
